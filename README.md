@@ -30,8 +30,8 @@ Eniac, an e-commerce tech retailer, is debating whether discounting products is 
 ## Technologies Used
 
 - **Programming:** Python
-- **Libraries:** pandas, numpy, matplotlib, seaborn
-- **Environment:** Jupyter / Google Colab
+- **Libraries:** pandas, seaborn
+- **Environment:** Google Colab
 
 ## Project Structure
 
@@ -49,17 +49,4 @@ notebooks/
 figures/                                  all charts generated during analysis
 presentation/                             final slide deck presented to the Eniac board
 ```
-
-## Visualisations
-
-![Distribution of discount size](reports/figures/highlight_discount_distribution.png)
-*Most discounts fall between 11–30%, peaking around 15–20% — a moderate, predictable range rather than aggressive price-cutting.*
-
-![Daily revenue with Black Friday and Christmas highlighted](reports/figures/highlight_seasonality_black_friday_christmas.png)
-*Revenue spikes sharply around Black Friday (~9.6x an average day) and rises more moderately over the Christmas period (~2.6x) — seasonality, not discount depth, drives these peaks.*
-
-![Top 10 categories by revenue](reports/figures/highlight_top_categories_by_revenue.png)
-*Storage and smartphones lead category revenue; storage earns the most overall despite only a moderate ~17% average discount.*
-
-All other charts generated during the analysis are in `reports/figures/`.
 
