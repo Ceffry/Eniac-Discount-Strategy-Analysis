@@ -1,7 +1,5 @@
 # E-commerce Discount Strategy Analysis — Eniac
 
-Data analysis project for WBS Coding School, evaluating whether Eniac's discounting strategy helps or hurts the business.
-
 ## Project Overview
 
 Eniac, an e-commerce tech retailer, is debating whether discounting products is good for the business. Marketing believes discounts drive customer acquisition and growth; the Board is worried that recent quarters show rising order volume but falling revenue, and prefers a quality-segment positioning over competing on price. Using Python (pandas, matplotlib/seaborn) on ~2 years of internal order data, we cleaned a corrupted dataset, built a product category taxonomy, and analyzed discount depth, seasonality, and category-level revenue to settle the debate.
@@ -12,7 +10,7 @@ Eniac, an e-commerce tech retailer, is debating whether discounting products is 
 
 - **Source:** Internal Eniac data (not public — provided for the WBS Coding School exercise; not included in this repo, see `data/raw/`)
 - **Files:** `orders.csv`, `orderlines.csv`, `products.csv`, `brands.csv`
-- **Period:** ~January 2017 – March 2018
+- **Period:** January 2017 – ~March 2018
 - **Key features:** order state and totals, per-line unit price and quantity, product base/promo price, brand, and product category
 - **Data quality:** the raw data was corrupted — missing values, wrong datatypes, duplicate rows, and inconsistent encodings. A full data quality assessment and cleaning pass was required before analysis (see `notebooks/01_data_cleaning.ipynb` and `notebooks/02_quality_assessment.ipynb`) and its limitations are documented there.
 
