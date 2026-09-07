@@ -1,50 +1,125 @@
-# E-commerce Discount Strategy Analysis — Eniac
+# Eniac's Discount Strategy Analysis
 
 ## Project Overview
 
-Eniac, an e-commerce tech retailer, is debating whether discounting products is good for the business. Marketing believes discounts drive customer acquisition and growth; the Board is worried that recent quarters show rising order volume but falling revenue, and prefers a quality-segment positioning over competing on price. Using Python (pandas, matplotlib/seaborn) on ~2 years of internal order data, we cleaned a corrupted dataset, built a product category taxonomy, and analyzed discount depth, seasonality, and category-level revenue to settle the debate.
+Eniac, a European e-commerce company specialising in tech products, is debating whether discounting its products is beneficial for the business. The Marketing Team believes discounts drive customer acquisition, satisfaction, and retention. The Board is concerned: a recent quarter showed an increase in orders placed alongside a decrease in total revenue, and prefers Eniac to compete in the quality segment rather than on price.
 
-**Bottom line: discounts are working, and they are not the aggressive kind the Board feared.**
+This project analyses ~2 years of Eniac's internal order and product data using Python (pandas, matplotlib, seaborn) to determine whether discounting is actually hurting revenue, how large and how frequent discounts really are, and how seasonality and product category affect the picture. The raw data was corrupted on arrival, so a full data cleaning and quality assessment process was required before any analysis could begin. Based on the findings, we recommend keeping discounts at their current level and growing high-end tech sales to reinforce Eniac's quality positioning.
+
+---
 
 ## Dataset & Sources
 
-- **Source:** Internal Eniac data (not public — provided for the WBS Coding School exercise; not included in this repo, see `data/raw/`)
+- **Source:** Eniac's internal order management database (provided as part of the WBS Coding School case study)
+- **Time period:** ~January 2017 – March 2018
 - **Files:** `orders.csv`, `orderlines.csv`, `products.csv`, `brands.csv`
-- **Period:** January 2017 – ~March 2018
-- **Key features:** order state and totals, per-line unit price and quantity, product base/promo price, brand, and product category
-- **Data quality:** the raw data was corrupted — missing values, wrong datatypes, duplicate rows, and inconsistent encodings. A full data quality assessment and cleaning pass was required before analysis (see `notebooks/01_data_cleaning.ipynb` and `notebooks/02_quality_assessment.ipynb`) and its limitations are documented there.
+- **Key data:** Order timestamps and states, order line quantities and unit prices, product base/promo prices, brand codes, and product type
+- **Data quality:** the raw data was corrupted — missing values, wrong datatypes, duplicate rows, and inconsistent encodings — requiring a full cleaning and quality assessment pass before analysis
+- **Tools:** Python (pandas, numpy, matplotlib, seaborn), Jupyter/Google Colab
+
+---
 
 ## Key Findings & Results
 
-- **Discounting is the norm, not the exception:** between 81% and 97% of order lines were sold at a discount every single month of the period, with no month falling below 80%.
-- **Discounts are moderate, not aggressive:** most discounts fall between 11% and 30%, peaking around 15–20%. Very few sales carry discounts above 60%.
-- **No revenue was lost to discounting overall:** orders and revenue per order move together through most of the year, both peaking sharply around Black Friday (Nov 2017) — there's no sign of the "more orders, less revenue" pattern across the whole dataset.
-- **Seasonality drives sales far more than discount depth:** Black Friday revenue spikes to ~9.6x an average day, and Christmas to ~2.6x — but discount rates during these peaks stay around the same ~20% average as the rest of the year, so the spike is about seasonal demand, not deeper price cuts.
-- **Revenue is concentrated in a few categories:** storage and smartphones are the top two revenue-generating categories; storage in particular pairs a moderate ~17% average discount with the highest total revenue (€2.3M), out-earning categories with steeper discounts — the exception to an otherwise clear "more discount → less category revenue" trend.
-- **High-end tech (desktops, laptops, smartphones, iPads, iPods) earns more when discounted**, similar to the rest of the catalog, but still contributes far less total revenue than the core categories — so it isn't yet the company's revenue driver despite being the strategic "quality segment" focus.
+### Discounting Is the Norm
 
-**Recommendation to the Board:** keep discounts around the current ~20% average — there's no evidence it's cannibalizing revenue — and grow high-end tech's share of sales to strengthen the quality-segment position, rather than cutting discounts across the board.
+- Between 81% and 97% of order lines were sold at a discount every single month of the period — discounting is standard practice, not an occasional promotion.
+- Most revenue comes from discounted products, not full-price ones.
+
+### Discounts Are Moderate, Not Aggressive
+
+- Most discounts fall between 11% and 30%, peaking around 15–20%.
+- Steep discounts above 60% are rare.
+
+![Distribution of discount size](reports/figures/highlight_discount_distribution.png)
+
+### No Revenue Was Lost to Discounting
+
+- Across the full period, order volume and revenue move together — there is no sign of the "more orders, less revenue" pattern the Board flagged in one quarter.
+
+### Seasonality Drives Sales, Not Discount Depth
+
+- Revenue spikes sharply around Black Friday (~9.6x an average day) and rises around Christmas (~2.6x).
+- Discount rates during these peaks stay around the same ~20% average as the rest of the year — customers buy seasonally, not because of deeper price cuts.
+
+![Daily revenue with Black Friday and Christmas highlighted](reports/figures/highlight_seasonality_black_friday_christmas.png)
+
+### Revenue Is Concentrated in a Few Categories
+
+- Storage and smartphones are the top two revenue-generating categories.
+- Storage pairs a moderate ~17% average discount with the highest total revenue (€2.3M) of any category.
+
+![Top 10 categories by revenue](reports/figures/highlight_top_categories_by_revenue.png)
+
+### High-End Tech Underperforms on Volume
+
+- High-end tech (desktops, laptops, smartphones, iPads, iPods) earns more revenue when discounted, the same pattern as the rest of the catalogue.
+- However, it still contributes far less total revenue than Eniac's core categories — it is not yet the company's revenue driver, despite being the strategic "quality segment" focus.
+
+---
+
+## Summary
+
+| Topic | Finding |
+|---|---|
+| Discount prevalence | 81–97% of order lines discounted every month |
+| Discount size | Mostly 11–30%, peaking at 15–20% |
+| Revenue vs. orders | Move together — no revenue lost to discounting |
+| Seasonality | Black Friday ~9.6x, Christmas ~2.6x average daily revenue |
+| Discount rate at peaks | Stays ~20%, same as the yearly average |
+| Top revenue categories | Storage, then smartphones |
+| High-end tech | Discount-responsive, but low revenue share |
+| Data quality | Corrupted on arrival — missing values, duplicates, wrong types, bad encodings |
+
+---
+
+## Recommendation
+
+### Keep discounts around the current ~20% average, and grow high-end tech's share of sales.
+
+Based on the analysis, we found no evidence that discounting is hurting Eniac's revenue. The pattern the Board was worried about does not hold up across the full dataset — orders and revenue move together, and the seasonal spikes in sales are not driven by deeper discounting.
+
+We therefore recommend:
+
+1. **Keep discounts around 20%.** There's no sign it's cannibalising revenue, and cutting it risks losing the sales volume it currently supports.
+2. **Grow high-end tech's share of sales.** To reinforce Eniac's quality-segment positioning, high-end tech needs to become a larger part of the revenue mix — not just a discount-responsive niche.
+
+We also recommend improving data collection for future analyses:
+
+- **Missing data:** tighter pipeline validation to reduce null/malformed values.
+- **Customer data:** no customer identifiers or demographics currently exist, which blocks any direct test of whether discounts improve retention.
+- **Human-readable product categories:** categories currently have to be reconstructed from SKU/type codes; storing them directly at the source would simplify future reporting.
+
+---
 
 ## Technologies Used
 
-- **Programming:** Python
-- **Libraries:** pandas, seaborn
-- **Environment:** Google Colab
+- **Python**
+  - pandas – data cleaning, quality assessment, aggregation
+  - numpy – numerical operations
+  - matplotlib / seaborn – data visualisation
+- **Jupyter / Google Colab** – analysis environment
+
+---
 
 ## Project Structure
 
 ```
-data/
-  raw data/                               original CSV exports (orders, orderlines, products, brands)
-  cleaned data/                           cleaned data
-  quality assessment and categories/      quality-assessed data plus the product categories
-notebooks/
-  01_data_cleaning.ipynb                  data quality assessment & cleaning
-  02_quality_assessment.ipynb             further quality checks post-cleaning
-  03_category_creation.ipynb              building a human-readable product category taxonomy
-  04_data_analysis_part1.ipynb            discounts, seasonality, category revenue analysis
-  05_data_analysis_part2.ipynb            supporting/secondary analysis and category-level detail
-figures/                                  all charts generated during analysis
-presentation/                             final slide deck presented to the Eniac board
+├── README.md
+├── data/
+│   ├── raw/            original CSV exports (orders, orderlines, products, brands)
+│   └── processed/      cleaned data, quality-assessed data, category taxonomy
+├── notebooks/
+│   ├── 01_data_cleaning.ipynb
+│   ├── 02_quality_assessment.ipynb
+│   ├── 03_category_creation.ipynb
+│   ├── 04_data_analysis_part1.ipynb
+│   └── 05_data_analysis_part2.ipynb
+└── reports/
+    ├── figures/         all charts generated during the analysis
+    └── presentation/    final slide deck presented to the Eniac board
 ```
 
+## Authors
+
+Ciba · Javier · Robert · Tatiana — WBS Coding School, Data Analytics bootcamp
