@@ -32,39 +32,39 @@ This project analyses ~2 years of Eniac's internal order and product data to det
 
 92.8% of order lines were sold at a discount — discounting is standard practice at Eniac, not an occasional promotion.
 
-`[ image: 05_Data_Analysis_0_01.png — Share of orderlines with vs. without discount ]`
+![Share of orderlines with vs. without discount](figures/05_Data_Analysis_0_01.png)
 
 Revenue tells the same story: discounted products generate far more monthly revenue than full-price products, every single month of the period.
 
-`[ image: 05_Data_Analysis_0_02.png — Monthly revenue with vs. without discount ]`
+![Monthly revenue with vs. without discount](figures/05_Data_Analysis_0_02.png)
 
 ### No Revenue Was Lost to Discounting
 
 Orders and revenue per order move together across the full period — there is no sign of the "more orders, less revenue" pattern the Board flagged in one quarter. Both peak sharply in November 2017 (Black Friday) and decline together afterwards.
 
-`[ image: 05_Data_Analysis_1_03.png — Orders vs. revenue per order, monthly ]`
+![Orders vs. revenue per order, monthly](figures/05_Data_Analysis_1_03.png)
 
 ### Discounts Are Moderate, Not Aggressive
 
 The middle 50% of discounts fall between 11% and 30%, peaking around 15–20%. Steep discounts above 60% are rare.
 
-`[ image: 05_Data_Analysis_1_10.png — Distribution of discount size ]`
+![Distribution of discount size](figures/05_Data_Analysis_1_10.png)
 
 The overall average discount across the whole period is 21.6%, and monthly averages stay close to that line all year — there's no aggressive escalation over time.
 
-`[ image: 05_Data_Analysis_2_06.png — Monthly discount compared with the average ]`
+![Monthly discount compared with the average](figures/05_Data_Analysis_2_06.png)
 
 ### High-End Tech Underperforms on Volume
 
 High-end tech (desktops, laptops, smartphones, iPads, iPods) earns more revenue when discounted, the same pattern as the rest of the catalogue — but it still contributes far less total revenue than Eniac's other products. It is not yet the company's revenue driver, despite being the strategic "quality segment" focus.
 
-`[ image: 05_Data_Analysis_3_01.png — Monthly revenue by product type and discount ]`
+![Monthly revenue by product type and discount](figures/05_Data_Analysis_3_01.png)
 
 ### Seasonality Drives Sales, Not Discount Depth
 
 Revenue spikes sharply around Black Friday and rises again around Christmas — but the average discount during these peaks (23.3% for Black Friday, 20.8% for Christmas) stays close to the yearly average of 21.6%. Customers buy seasonally, not because of deeper price cuts.
 
-`[ image: 05_Data_Analysis_1_12.png — Daily revenue with average discount, Black Friday and Christmas highlighted ]`
+![Daily revenue with average discount, Black Friday and Christmas highlighted](figures/05_Data_Analysis_1_12.png)
 
 ---
 
@@ -72,10 +72,10 @@ Revenue spikes sharply around Black Friday and rises again around Christmas — 
 
 | Stage | Finding |
 |---|---|
-| Data quality | Corrupted on arrival — missing values, duplicates, wrong types, bad encodings |
+| Data quality | Corrupted, missing values, duplicates, wrong types |
 | Discount prevalence | 92.8% of order lines sold at a discount |
 | Discount size | Middle 50% between 11–30%, peaking at 15–20%; yearly average 21.6% |
-| Revenue vs. orders | Move together — no revenue lost to discounting |
+| Revenue vs. orders | Move together: no revenue lost to discounting |
 | Seasonality | Black Friday (23.3%) and Christmas (20.8%) discounts stay close to the yearly average |
 | Categories | High-end tech is discount-responsive but still a low share of total revenue |
 
@@ -83,15 +83,15 @@ Revenue spikes sharply around Black Friday and rises again around Christmas — 
 
 ## Recommendation
 
-**Keep discounts around 20%.**
+**Keep discounts around 20%**, the analysis shows no evidence that current discount levels are hurting revenue.
 
-**To place ourselves in the quality segment, increase sales of high-end tech.**
+**Increase sales of high-end tech** to position Eniac more firmly in the quality segment.
 
-For future analyses, data collection could be improved in three areas:
+To support stronger analyses going forward, we recommend improving data collection in three areas:
 
-- **Missing data**
-- **Customer data**
-- **Human-readable product categories**
+- **Missing data** — reduce gaps at the source to cut down on cleaning work
+- **Customer data** — add customer-level identifiers to enable retention and acquisition analysis
+- **Human-readable product categories** — store categories directly instead of reconstructing them from codes
 
 ---
 
@@ -109,19 +109,15 @@ For future analyses, data collection could be improved in three areas:
 ```
 ├── README.md
 ├── data/
-│   ├── raw/            original CSV exports (orders, orderlines, products, brands)
-│   └── processed/      cleaned data, quality-assessed data, category taxonomy
+│   ├── raw data/                                original CSV exports (orders, orderlines, products, brands)
+|   ├── cleaned data/                            cleaned data,
+│   └── quality assessment and categories/       quality-assessed data, category taxonomy
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb
 │   ├── 02_quality_assessment.ipynb
 │   ├── 03_category_creation.ipynb
 │   ├── 04_data_analysis_part1.ipynb
 │   └── 05_data_analysis_part2.ipynb
-└── reports/
-    ├── figures/         the charts used in the board presentation
-    └── presentation/    final slide deck presented to the Eniac board
+├── figures/                                    the charts used in the board presentation
+└── eniac-discount-strategy-presentation.pptx   final slide deck presented to the Eniac board
 ```
-
-## Authors
-
-Ciba · Javier · Robert · Tatiana — WBS Coding School, Data Analytics bootcamp
