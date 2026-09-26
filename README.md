@@ -124,7 +124,7 @@ To support stronger analyses going forward, we recommend improving data collecti
 
 ## My Contribution
 
-This was a group project completed with 3 teammates as part of the WBS Coding School Data Analytics bootcamp.
+This was a group project completed with 4 teammates as part of the WBS Coding School Data Analytics bootcamp.
 
 - **Data Cleaning, Quality Assessment & Category Creation:** each of us cleaned, quality-checked, and categorized the data individually first, then compared results as a group to agree on a common approach. The category-creation code in the final notebook was written by teammates, incorporating parts of my own logic.
 - **Data Analysis:** `05_Data Analysis 2.ipynb` is my individual work. My focus was analyzing discounts against the monthly average, both in count and percentage terms.
