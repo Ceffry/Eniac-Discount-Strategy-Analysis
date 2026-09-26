@@ -13,7 +13,7 @@ This project analyses ~2 years of Eniac's internal order and product data to det
 - **Source:** Eniac's internal order management database (provided as part of the WBS Coding School case study)
 - **Time period:** ~January 2017 – March 2018
 - **Files:** `orders.csv`, `orderlines.csv`, `products.csv`, `brands.csv`
-- **Data quality:** the raw data was corrupted — missing values, wrong datatypes, duplicate rows, and inconsistent encodings — requiring a full cleaning and quality assessment pass before analysis
+- **Data quality:** the raw data was corrupted, had missing values, wrong datatypes, duplicate rows, and inconsistent encodings — requiring a full cleaning and quality assessment pass before analysis
 
 ---
 
@@ -40,7 +40,7 @@ Revenue tells the same story: discounted products generate far more monthly reve
 
 ### No Revenue Was Lost to Discounting
 
-Orders and revenue per order move together across the full period — there is no sign of the "more orders, less revenue" pattern the Board flagged in one quarter. Both peak sharply in November 2017 (Black Friday) and decline together afterwards.
+Orders and revenue per order move together across the full period, there is no sign of the "more orders, less revenue" pattern the Board flagged in one quarter. Both peak sharply in November 2017 (Black Friday) and decline together afterwards.
 
 ![Orders vs. revenue per order, monthly](figures/05_Data_Analysis_1_03.png)
 
@@ -50,19 +50,19 @@ The middle 50% of discounts fall between 11% and 30%, peaking around 15–20%. S
 
 ![Distribution of discount size](figures/05_Data_Analysis_1_10.png)
 
-The overall average discount across the whole period is 21.6%, and monthly averages stay close to that line all year — there's no aggressive escalation over time.
+The overall average discount across the whole period is 21.6%, and monthly averages stay close to that line all year, there's no aggressive escalation over time.
 
 ![Monthly discount compared with the average](figures/05_Data_Analysis_2_06.png)
 
 ### High-End Tech Underperforms on Volume
 
-High-end tech (desktops, laptops, smartphones, iPads, iPods) earns more revenue when discounted, the same pattern as the rest of the catalogue — but it still contributes far less total revenue than Eniac's other products. It is not yet the company's revenue driver, despite being the strategic "quality segment" focus.
+High-end tech (desktops, laptops, smartphones, iPads, iPods) earns more revenue when discounted, the same pattern as the rest of the catalogue, but it still contributes far less total revenue than Eniac's other products. It is not yet the company's revenue driver, despite being the strategic "quality segment" focus.
 
 ![Monthly revenue by product type and discount](figures/05_Data_Analysis_3_01.png)
 
 ### Seasonality Drives Sales, Not Discount Depth
 
-Revenue spikes sharply around Black Friday and rises again around Christmas — but the average discount during these peaks (23.3% for Black Friday, 20.8% for Christmas) stays close to the yearly average of 21.6%. Customers buy seasonally, not because of deeper price cuts.
+Revenue spikes sharply around Black Friday and rises again around Christmas, but the average discount during these peaks (23.3% for Black Friday, 20.8% for Christmas) stays close to the yearly average of 21.6%. Customers buy seasonally, not because of deeper price cuts.
 
 ![Daily revenue with average discount, Black Friday and Christmas highlighted](figures/05_Data_Analysis_1_12.png)
 
